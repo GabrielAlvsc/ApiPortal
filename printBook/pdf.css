@@ -1,0 +1,292 @@
+
+
+body {
+    font-family: Carlito, Calibri, "Calibri (Body)", Arial, Helvetica, sans-serif;
+    font-size: 12pt;
+    width: 21cm;
+    margin-left: 50%;
+
+    transform: translate(-50%);
+    print-color-adjust: exact;
+    background-color: #cadbd8;
+    -webkit-print-color-adjust: exact;
+    counter-reset: figure;
+}
+@media print{
+    body {
+        margin-left: 0;
+        transform: translate(0);
+    }
+}
+
+.page-container {
+    background: #fff;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+}
+
+.headerGroup {
+    position: relative;
+    background: transparent;
+}
+
+.headerGroup:after {
+    filter: grayscale(0);
+    display: inline-block;
+    opacity: .2;
+    /* width: 700px !important; */
+}
+
+.content,
+.content-wrapper {
+    /* padding: 0 !important; */
+    /* margin: 0 !important; */
+    background-color: #ffffff;
+
+}
+
+
+.page-container table {
+    border: 1.5px solid black;
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.page-container td {
+    border: 1.5px solid black;
+    word-wrap: break-word;
+}
+
+.page-container tr {
+    border: 1.5px solid black;
+}
+
+.page-container th {
+    border: 1.5px solid black;
+}
+
+
+.main-table th {
+    background-color: white;
+    text-align: start;
+}
+
+.secondary-table th {
+    background-color: #003abda1;
+    color: white;
+}
+
+.secondary-table tr:nth-child(even) {
+    background-color: #ffffff;
+    /* Cor para linhas pares */
+}
+
+.secondary-table tr:nth-child(odd) {
+    background-color: #003abd2b;
+    /* Cor para linhas ímpares */
+}
+
+.secondary-table {
+    text-align: center;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.main-table th, .main-table td {
+    padding: 5px 15px;
+}
+
+.row-title {
+    font-weight: bold;
+
+}
+
+.main-title {
+    margin-top: 80px;
+}
+
+.main-title>h1 {
+    font-weight: 100;
+    text-align: center;
+}
+
+.title {
+    font-weight: 400;
+    color: #003abda1;
+    text-transform: uppercase;
+}
+
+.subtitle {
+    font-weight: 600;
+}
+
+.longtext {
+    padding: 10px 0 2px 0;
+    background-color: #f0f4f7;
+}
+
+.longtext p {
+    margin: 0px;
+}
+
+
+.item>div>h4 {
+    margin-block-end: 0px;
+}
+
+.item>div>div>h4.title {
+    margin-block-end: 0px;
+}
+
+
+.item>div>div>p {
+    margin-block-start: 0px;
+}
+
+
+.image-evidence{
+    max-height: 100%;
+    text-align: center;
+}
+.figure{
+    text-align: center;
+    counter-increment: figure;
+}
+
+img {
+    margin: 0;
+    padding: 0;
+    max-height: 25cm;
+    max-width: 80%;
+}
+.figure:not(:first-child) {
+    margin-top: 30px;
+}
+.figure span::before{
+    margin: 0;
+    padding: 0;
+    content: "Figura " counter(figure) ": ";
+}
+
+.first-row {
+    line-height: 1;
+}
+
+.first-row th:nth-of-type(2) {
+    width: 60%;
+}
+
+.second-row {
+    line-height: 1.4;
+}
+
+.second-row th:nth-of-type(4) {
+    width: 15%;
+}
+
+/*.ol { */
+    /*counter-reset: item;*/
+    /* counter-reset: image_evidence; */
+/*}*/
+
+li .summary-list {
+    display: block;
+    padding-bottom: 8px;
+}
+
+.p {
+    text-align: justify;
+}
+
+/* li .summary-list:before { */
+    /* content: counters(item, ".") " "; */
+    /* counter-increment: item; */
+/*}*/
+
+/*.summary-list { */
+    /* padding: 0; */
+/*}*/
+
+.a {
+    text-decoration: none;
+    color: black;
+}
+
+.a:hover {
+    text-decoration: underline;
+}
+
+.ul {
+    display: block;
+    list-style-type: disc !important;
+}
+
+.code-div {
+    font-family: monospace;
+    background-color: black;
+    color: white;
+    padding: 10px;
+}
+
+thead {
+    display: table-header-group;
+}
+
+tfoot {
+    display: table-footer-group;
+}
+
+
+html,
+body {
+    /* height: 99%; */
+    page-break-after: avoid;
+    page-break-before: avoid;
+}
+
+/* ----aditional style----- */
+.page {
+    width: 100%;
+    page-break-before: always;
+}
+
+
+
+.headerGroup {
+    position: relative;
+    background: transparent;
+}
+
+.headerGroup:after {
+    font-size: 90pt;
+    color: #f50000;
+    text-align: center;
+    margin: 50%;
+    transform: translate(-50%);
+    filter: grayscale(0);
+    background-size: cover;
+    opacity: .1;
+    font-weight: 900;
+    position: absolute;
+    width: 90%;
+    height: 100%;
+    z-index: 100 !important;
+    display: absolute;
+    pointer-events: none;
+}
+
+
+@media print {
+    body {
+        print-color-adjust: exact;
+        -webkit-print-color-adjust: exact;
+    }
+    @page {
+        -webkit-print-color-adjust: exact;
+    }
+}

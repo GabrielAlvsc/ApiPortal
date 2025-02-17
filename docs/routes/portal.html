@@ -1,0 +1,232 @@
+# Documentação da API do Portal
+
+## Endpoints
+
+### 1. Listar Cadernos do Portal
+**Endpoint:** `/portal`
+
+**Método:** `GET`
+
+**Autenticação:** Nenhuma
+
+**Descrição:** Lista todos os cadernos do portal que não estão com status "Pendente".
+
+**Resposta de Sucesso:**
+- `200 OK`: Lista de cadernos no portal.
+
+**Resposta de Erro:**
+- `400 Bad Request`: `{ "message": "Ocorreu um erro ao processar sua solicitação" }`
+
+---
+
+### 2. Detalhes de um Caderno do Portal
+**Endpoint:** `/portal/book/:idBook`
+
+**Método:** `GET`
+
+**Autenticação:** Nenhuma
+
+**Descrição:** Obtém os detalhes de um caderno específico do portal.
+
+**Parâmetros:**
+- `idBook` (integer, obrigatório): ID do caderno.
+
+**Resposta de Sucesso:**
+- `200 OK`: Detalhes do caderno, incluindo estática, features e resumo dos testes.
+
+**Resposta de Erro:**
+- `404 Not Found`: `{ "message": "Caderno não encontrado" }`
+- `400 Bad Request`: `{ "message": error.message }`
+
+---
+
+### 3. Listar Cadernos Recentes
+**Endpoint:** `/recentBooks`
+
+**Método:** `GET`
+
+**Autenticação:** Nenhuma
+
+**Descrição:** Lista os cadernos recentes aprovados, limitados pelo parâmetro `limit`.
+
+**Parâmetros:**
+- `limit` (integer, opcional): Número máximo de cadernos a serem retornados. Se não for fornecido ou for inválido, o valor padrão é 5.
+
+**Resposta de Sucesso:**
+- `200 OK`: Lista de cadernos recentes aprovados.
+
+**Resposta de Erro:**
+- `404 Not Found`: `{ "message": "Caderno não encontrado" }`
+- `400 Bad Request`: `{ "message": "Ocorreu um erro ao processar sua solicitação" }`
+
+---
+
+## Estrutura de Resposta
+
+### Estrutura de Resposta do Endpoint `/portal`
+**Resposta de Sucesso:**
+```json
+[
+    {
+        "idEquip": 1,
+        "image": "uploads/default.png",
+        "idBook": 1,
+        "idVersion": 1,
+        "idModel": 1,
+        "status": "Aprovado",
+        "vendor": "Vendor Name",
+        "name": "Equipment Name",
+        "titleBook": "Model Title",
+        "category": "Category Name",
+        "updatedAt": "DD/MM/YYYY"
+    },
+    ...
+]
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentação da API do Portal</title>
+</head>
+<body>
+    <h1>Documentação da API do Portal</h1>
+
+    <h2>Endpoints</h2>
+
+    <h3>1. Listar Cadernos do Portal</h3>
+    <p><strong>Endpoint:</strong> <code>/portal</code></p>
+    <p><strong>Método:</strong> <code>GET</code></p>
+    <p><strong>Autenticação:</strong> Nenhuma</p>
+    <p><strong>Descrição:</strong> Lista todos os cadernos do portal que não estão com status "Pendente".</p>
+
+    <h4>Resposta de Sucesso:</h4>
+    <p><code>200 OK</code>: Lista de cadernos no portal.</p>
+
+    <h4>Resposta de Erro:</h4>
+    <p><code>400 Bad Request</code>: <code>{ "message": "Ocorreu um erro ao processar sua solicitação" }</code></p>
+
+    <hr>
+
+    <h3>2. Detalhes de um Caderno do Portal</h3>
+    <p><strong>Endpoint:</strong> <code>/portal/book/:idBook</code></p>
+    <p><strong>Método:</strong> <code>GET</code></p>
+    <p><strong>Autenticação:</strong> Nenhuma</p>
+    <p><strong>Descrição:</strong> Obtém os detalhes de um caderno específico do portal.</p>
+
+    <h4>Parâmetros:</h4>
+    <ul>
+        <li><code>idBook</code> (integer, obrigatório): ID do caderno.</li>
+    </ul>
+
+    <h4>Resposta de Sucesso:</h4>
+    <p><code>200 OK</code>: Detalhes do caderno, incluindo estática, features e resumo dos testes.</p>
+
+    <h4>Resposta de Erro:</h4>
+    <p><code>404 Not Found</code>: <code>{ "message": "Caderno não encontrado" }</code></p>
+    <p><code>400 Bad Request</code>: <code>{ "message": error.message }</code></p>
+
+    <hr>
+
+    <h3>3. Listar Cadernos Recentes</h3>
+    <p><strong>Endpoint:</strong> <code>/recentBooks</code></p>
+    <p><strong>Método:</strong> <code>GET</code></p>
+    <p><strong>Autenticação:</strong> Nenhuma</p>
+    <p><strong>Descrição:</strong> Lista os cadernos recentes aprovados, limitados pelo parâmetro <code>limit</code>.</p>
+
+    <h4>Parâmetros:</h4>
+    <ul>
+        <li><code>limit</code> (integer, opcional): Número máximo de cadernos a serem retornados. Se não for fornecido ou for inválido, o valor padrão é 5.</li>
+    </ul>
+
+    <h4>Resposta de Sucesso:</h4>
+    <p><code>200 OK</code>: Lista de cadernos recentes aprovados.</p>
+
+    <h4>Resposta de Erro:</h4>
+    <p><code>404 Not Found</code>: <code>{ "message": "Caderno não encontrado" }</code></p>
+    <p><code>400 Bad Request</code>: <code>{ "message": "Ocorreu um erro ao processar sua solicitação" }</code></p>
+
+    <hr>
+
+    <h2>Estrutura de Resposta</h2>
+
+    <h3>Estrutura de Resposta do Endpoint <code>/portal</code></h3>
+    <h4>Resposta de Sucesso:</h4>
+    <pre><code>[
+    {
+        "idEquip": 1,
+        "image": "uploads/default.png",
+        "idBook": 1,
+        "idVersion": 1,
+        "idModel": 1,
+        "status": "Aprovado",
+        "vendor": "Vendor Name",
+        "name": "Equipment Name",
+        "titleBook": "Model Title",
+        "category": "Category Name",
+        "updatedAt": "DD/MM/YYYY"
+    },
+    ...
+]</code></pre>
+
+    <h3>Estrutura de Resposta do Endpoint <code>/portal/book/:idBook</code></h3>
+    <h4>Resposta de Sucesso:</h4>
+    <pre><code>{
+    "statics": {
+        "equipment": "Equipment Name",
+        "vendor": "Vendor Name",
+        "model": "Model Title",
+        "modelVersion": "1.0",
+        "category": "Category Name",
+        "image": "uploads/default.png",
+        "status": "Aprovado",
+        "sgd": "SGD12345",
+        "price": 1000.00,
+        "endOfSales": "Não previsto",
+        "certifiedDate": "DD/MM/YYYY"
+    },
+    "features": {
+        "Feature 1": "Response 1",
+        "Feature 2": "Response 2",
+        ...
+    },
+    "testResume": {
+        "Test 1": true,
+        "Test 2": false,
+        ...
+    }
+}</code></pre>
+
+    <h3>Estrutura de Resposta do Endpoint <code>/recentBooks</code></h3>
+    <h4>Resposta de Sucesso:</h4>
+    <pre><code>[
+    {
+        "statics": {
+            "equipment": "Equipment Name",
+            "vendor": "Vendor Name",
+            "model": "Model Title",
+            "modelVersion": "1.0",
+            "category": "Category Name",
+            "image": "uploads/default.png",
+            "status": "Aprovado",
+            "sgd": "SGD12345",
+            "price": 1000.00,
+            "endOfSales": "Não previsto",
+            "certifiedDate": "DD/MM/YYYY"
+        },
+        "features": {
+            "Feature 1": "Response 1",
+            "Feature 2": "Response 2",
+            ...
+        },
+        "testResume": {
+            "Test 1": true,
+            "Test 2": false,
+            ...
+        }
+    },
+    ...
+]</code></pre>
+</body>
+</html>
+

@@ -1,0 +1,7 @@
+node_modules
+config.js
+.github/
+uploads
+dumps
+get_version.sh
+sheets
